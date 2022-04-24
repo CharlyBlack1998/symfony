@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+    <h1>{{ product.title }}</h1>
+    <p>Title: {{ product.title }}</p>
+    <p>Price: {{ product.price }}</p>
+    <p>Description: {{ product.description }}</p>
+    {% if product.shop is not empty %}
+        <p>Shop: <a href="{{ path('shop_show', {'id': product.shop.id}) }}">{{ product.shop.title }}</a></p>
+    {% endif %}
+
+    <a href="{{ path('product_list') }}">Назад</a>
+{% endblock %}

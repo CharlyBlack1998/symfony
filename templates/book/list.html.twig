@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Библиотека {% endblock %}
+
+{% block content %}
+    <form class="form-inline my-2 my-lg-0" action="{{ path('book_list') }}" method="GET">
+        <input class="form-control mr-sm-2" type="search" aria-label="Search" name="title">
+        <button class="btn btn-default my-2 my-sm-0" type="submit">Поиск по имени</button>
+    </form>
+    <p><a href="{{ path('book_create') }}">Создание книги</a></p>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th> № п/п </th>
+            <th> Title </th>
+            <th> Page quantity </th>
+            <th> Actions </th>
+        </tr>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.pageQuantity }}</td>
+                <td>
+                    <p><a href="{{ path('book_show', {'id': book.id}) }}">Просмотр</a></p>
+                    <p><a href="{{ path('book_update', {'id': book.id}) }}">Редактировать</a></p>
+                    <p><a href="{{ path('book_delete', {'id': book.id}) }}">Удалить</a></p>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

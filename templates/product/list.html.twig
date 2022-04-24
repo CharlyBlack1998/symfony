@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Список продуктов {% endblock %}
+
+{% block content %}
+    <form class="form-inline my-2 my-lg-0" action="{{ path('product_list') }}" method="GET">
+        <input class="form-control mr-sm-2" type="search" aria-label="Search" name="title">
+        <button class="btn btn-default my-2 my-sm-0" type="submit">Поиск по имени</button>
+    </form>
+    <p><a href="{{ path('product_create') }}">Создание продукта</a></p>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>№ п/п</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+                <td>
+                    <p><a href="{{ path('product_show', {'id': product.id}) }}">Просмотр</a></p>
+                    <p><a href="{{ path('product_update', {'id': product.id}) }}">Редактировать</a></p>
+                    <p><a href="{{ path('product_delete', {'id': product.id}) }}">Удалить</a></p>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

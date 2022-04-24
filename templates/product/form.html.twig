@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Создание продукта {% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.description) }}
+    {{ form_end(form) }}
+
+    <p><a href="{{ path('product_list') }}">Назад</a></p>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
+{% endblock %}

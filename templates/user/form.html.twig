@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Создание пользователя {% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.surname) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.age) }}
+    {{ form_end(form) }}
+
+    <a  href="{{ path('user_list') }}">Назад</a>
+{% endblock %}

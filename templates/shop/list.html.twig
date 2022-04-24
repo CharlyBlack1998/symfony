@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Список магазинов {% endblock %}
+
+{% block content %}
+    <form class="form-inline my-2 my-lg-0" action="{{ path('shop_list') }}" method="GET">
+        <input class="form-control mr-sm-2" type="search" aria-label="Search" name="title">
+        <button class="btn btn-default my-2 my-sm-0" type="submit">Поиск по имени</button>
+    </form>
+    <p><a href="{{ path('shop_create') }}">Создание магазина</a></p>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th> № п/п </th>
+            <th> Title </th>
+            <th> Address </th>
+            <th> Actions </th>
+        </tr>
+        {% for shop in shops %}
+            <tr>
+                <td>{{ shop.id }}</td>
+                <td>{{ shop.title }}</td>
+                <td>{{ shop.address }}</td>
+                <td>
+                    <p><a href="{{ path('shop_show', {'id': shop.id}) }}">Просмотр</a></p>
+                    <p><a href="{{ path('shop_update', {'id': shop.id}) }}">Редактировать</a></p>
+                    <p><a href="{{ path('shop_delete', {'id': shop.id}) }}">Удалить</a></p>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Просмотр пользователя {% endblock %}
+
+{% block content %}
+    <h1>User</h1>
+    <p>Username: {{ user.name }}</p>
+    <p>Surname: {{ user.surname }}</p>
+    <p>Age: {{ user.age }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Password: {{ user.password }}</p>
+
+    <a href="{{ path('user_list') }}">Назад</a>
+{% endblock %}

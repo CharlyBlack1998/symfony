@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} pupupupupuser {% endblock %}
+
+{% block content %}
+    <h2> Book </h2>
+    <p>Title: {{ book.title }}</p>
+    <p>Page quantity: {{ book.pageQuantity }}</p>
+    {% if book.shop is not null %}
+        <p>Shop: <a href="{{ path('shop_show', {'id': book.shop.id}) }}">{{ book.shop.title }}, {{ book.shop.address }}</a></p>
+    {% endif %}
+
+    <a href="{{ path('book_list') }}">Назад</a>
+{% endblock %}

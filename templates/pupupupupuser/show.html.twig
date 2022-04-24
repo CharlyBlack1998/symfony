@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} pupupupupuser {% endblock %}
+
+{% block content %}
+    <h2> Pupupupupuser </h2>
+    <p>Name: {{ pupupupupuser.name }}</p>
+    <p>Age: {{ pupupupupuser.age }}</p>
+    <p>Salary: {{ pupupupupuser.salary }}</p>
+
+    <a href="{{ path('pupupupupuser_list') }}">Назад</a>
+{% endblock %}

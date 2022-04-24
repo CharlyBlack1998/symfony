@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Просмотр магазина {% endblock %}
+
+{% block content %}
+    <h1>Shop</h1>
+    <p>Title: {{ shop.title }}</p>
+    <p>Address: {{ shop.address }}</p>
+    {% if shop.books is not empty %}
+        <p>Books: </p>
+        <ul>
+            {% for book in shop.books %}
+                <li><a href="{{ path('book_show', {'id': book.id}) }}">{{ book.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if shop.products is not empty %}
+        <p>Products: </p>
+        <ul>
+            {% for product in shop.products %}
+                <li><a href="{{ path('product_show', {'id': product.id}) }}">{{ product.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="{{ path('shop_list') }}">Назад</a>
+{% endblock %}

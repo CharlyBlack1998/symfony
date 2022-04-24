@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Создание магазина {% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.address) }}
+        {{ form_row(form.products, {'attr': {'class': 'select2'}}) }}
+        {{ form_row(form.books, {'attr': {'class': 'select2'}}) }}
+    {{ form_end(form) }}
+
+    <a href="{{ path('shop_list') }}">Назад</a>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
+{% endblock %}
